@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#04263b">
+<title>Krillion Leaderboard</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="sea" aria-hidden="true">
+  <span class="bubble b1"></span><span class="bubble b2"></span><span class="bubble b3"></span>
+  <span class="bubble b4"></span><span class="bubble b5"></span><span class="bubble b6"></span>
+  <span class="bubble b7"></span><span class="bubble b8"></span>
+</div>
+<header>
+  <div class="logo">🦐</div>
+  <h1><span class="krillion-word">Krillion</span> Leaderboard</h1>
+  <p class="sub">One dive a day · 7 questions · rarer = deeper</p>
+</header>
+
+<main>
+  <!-- LEADERBOARDS -->
+  <section id="view-boards" class="view active">
+    <label class="board-select-wrap">Show
+      <select id="board-select" aria-label="Choose leaderboard">
+        <option value="highest_score">🏆 Highest score</option>
+        <option value="daily_score">📅 Daily score</option>
+        <option value="highest_average">📈 Highest average</option>
+        <option value="lowest_score">🐌 Lowest score</option>
+        <option value="most_krillions">💎 One in a Krillion</option>
+      </select>
+    </label>
+    <div id="daily-picker" hidden>
+      <label>Day
+        <input id="daily-date" type="date">
+      </label>
+    </div>
+    <div id="board-list"></div>
+  </section>
+
+  <!-- SUBMIT -->
+  <section id="view-submit" class="view">
+    <h2>Submit your dive</h2>
+    <form id="submit-form">
+      <label>Your name
+        <input id="f-name" list="player-names" placeholder="e.g. Sara" autocomplete="off" required>
+        <datalist id="player-names"></datalist>
+      </label>
+      <label>Date
+        <input id="f-date" type="date" required>
+      </label>
+      <label>Total score (out of 700)
+        <input id="f-score" type="number" min="0" max="700" step="1" placeholder="e.g. 355" required>
+      </label>
+      <div class="depth-hint" id="depth-hint"></div>
+      <label>How many <b>One in a Krillion</b> (100 pts) did you get?
+        <div class="stepper">
+          <button type="button" id="kr-minus">−</button>
+          <span id="kr-count">0</span>
+          <button type="button" id="kr-plus">+</button>
+        </div>
+      </label>
+      <div id="kr-fields"></div>
+      <button class="big" type="submit">Post my result 🌊</button>
+      <p class="msg" id="submit-msg"></p>
+      <p class="hint">One dive per day — submitting again for the same date updates your result.</p>
+    </form>
+  </section>
+
+  <!-- PLAYERS -->
+  <section id="view-players" class="view">
+    <h2>Players</h2>
+    <div id="player-list"></div>
+  </section>
+</main>
+
+<nav>
+  <button data-view="boards" class="active">🏆<span>Boards</span></button>
+  <button data-view="submit">➕<span>Submit</span></button>
+  <button data-view="players">👥<span>Players</span></button>
+</nav>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

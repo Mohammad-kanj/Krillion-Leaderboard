@@ -1,0 +1,5 @@
+run = "python3 main.py"
+language = "python3"
+
+[nix]
+channel = "stable-24_05"

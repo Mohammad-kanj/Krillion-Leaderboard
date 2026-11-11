@@ -1,0 +1,76 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, sans-serif; color: #e8f6ff; min-height: 100vh; padding-bottom: 84px;
+  /* Krillion-style deep dive: light water at the top, fading to near-black depth at the bottom */
+  background:
+    radial-gradient(ellipse 90% 45% at 50% -5%, rgba(18, 165, 212, .45), transparent 65%),
+    radial-gradient(ellipse 60% 35% at 85% 30%, rgba(0, 180, 160, .18), transparent 70%),
+    linear-gradient(180deg, #0b4a6e 0%, #06304a 28%, #04263b 55%, #02141f 80%, #01090f 100%); }
+.sea { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+.bubble { position: absolute; bottom: -30px; border-radius: 50%; border: 1.5px solid rgba(160, 220, 255, .45); background: rgba(160, 220, 255, .10); animation: rise linear infinite; }
+.bubble.b1 { left: 8%; width: 14px; height: 14px; animation-duration: 11s; }
+.bubble.b2 { left: 20%; width: 8px; height: 8px; animation-duration: 8s; animation-delay: 2s; }
+.bubble.b3 { left: 38%; width: 20px; height: 20px; animation-duration: 14s; animation-delay: 1s; }
+.bubble.b4 { left: 55%; width: 10px; height: 10px; animation-duration: 9s; animation-delay: 4s; }
+.bubble.b5 { left: 68%; width: 16px; height: 16px; animation-duration: 12s; animation-delay: 3s; }
+.bubble.b6 { left: 82%; width: 7px; height: 7px; animation-duration: 7s; animation-delay: 5s; }
+.bubble.b7 { left: 92%; width: 18px; height: 18px; animation-duration: 15s; animation-delay: 2s; }
+.bubble.b8 { left: 30%; width: 6px; height: 6px; animation-duration: 10s; animation-delay: 6s; }
+@keyframes rise { from { transform: translateY(0); opacity: 0; } 12% { opacity: .8; } to { transform: translateY(-105vh); opacity: 0; } }
+header, main, nav { position: relative; z-index: 1; }
+header { text-align: center; padding: 22px 16px 4px; }
+.logo { font-size: 40px; }
+h1 { margin: 4px 0 2px; font-size: 26px; }
+/* The word "Krillion" gets the game's deep-sea title treatment: bold,
+   rounded-feeling, light-to-deep gradient with a soft water glow. */
+.krillion-word { font-weight: 900; letter-spacing: .5px;
+  background: linear-gradient(180deg, #d8f6ff 0%, #7ddfff 38%, #12a5d4 72%, #0e7ea6 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 2px 10px rgba(18, 165, 212, .55)); }
+h2 { font-size: 20px; margin: 8px 0 14px; }
+.sub { color: #8fd3e8; margin: 0; font-size: 14px; }
+main { max-width: 640px; margin: 0 auto; padding: 14px; }
+.view { display: none; }
+.view.active { display: block; }
+/* Rounded dropdown for all leaderboard categories */
+.board-select-wrap { display: block; color: #8fd3e8; font-size: 13px; margin-bottom: 12px; }
+.board-select-wrap select { display: block; width: 100%; margin-top: 6px; padding: 13px 44px 13px 18px;
+  border: 1px solid #17617d; border-radius: 24px; background: #06304a; color: #e8f6ff;
+  font-size: 16px; font-weight: 700; cursor: pointer; appearance: none; -webkit-appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, #8fd3e8 50%), linear-gradient(135deg, #8fd3e8 50%, transparent 50%);
+  background-position: calc(100% - 24px) 50%, calc(100% - 19px) 50%; background-size: 5px 5px; background-repeat: no-repeat; }
+.board-select-wrap select:focus { outline: 2px solid #12a5d4; outline-offset: 2px; }
+#daily-picker { margin: 0 0 14px; }
+#daily-picker label { display: block; color: #cfeeff; font-size: 14px; }
+#daily-picker input { width: 100%; margin-top: 6px; padding: 12px 16px; border-radius: 20px; }
+.row { display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,.05); border: 1px solid rgba(140,220,255,.15); border-radius: 14px; padding: 12px 14px; margin-bottom: 8px; cursor: pointer; }
+.rank { font-size: 20px; min-width: 34px; text-align: center; }
+.who { flex: 1; min-width: 0; }
+.who .name { font-weight: 700; font-size: 16px; }
+.who .meta { color: #9fc9da; font-size: 13px; }
+.value { text-align: right; font-weight: 800; font-size: 18px; }
+.value .depth { display: block; font-weight: 500; font-size: 12px; color: #8fd3e8; }
+.expand { padding: 4px 14px 12px 60px; color: #d6f2ff; font-size: 14px; }
+.expand div { padding: 4px 0; border-top: 1px dashed rgba(140,220,255,.18); }
+.empty { text-align: center; color: #9fc9da; padding: 34px 10px; font-size: 15px; }
+form label { display: block; margin: 14px 0 4px; font-size: 15px; color: #cfeeff; }
+input { width: 100%; margin-top: 6px; padding: 13px; border-radius: 12px; border: 1px solid #17617d; background: #06304a; color: #fff; font-size: 17px; }
+.stepper { display: flex; align-items: center; gap: 18px; margin-top: 8px; }
+.stepper button { width: 48px; height: 48px; border-radius: 50%; border: 1px solid #17617d; background: #0e7ea6; color: #fff; font-size: 24px; cursor: pointer; }
+.stepper span { font-size: 22px; font-weight: 800; min-width: 24px; text-align: center; }
+.kr-field { background: rgba(255,255,255,.04); border: 1px dashed rgba(140,220,255,.25); border-radius: 12px; padding: 4px 12px 12px; margin-top: 12px; }
+button.big { width: 100%; margin-top: 22px; padding: 15px; border: 0; border-radius: 14px; background: #12a5d4; color: #fff; font-size: 18px; font-weight: 800; cursor: pointer; }
+.msg { min-height: 20px; text-align: center; font-weight: 600; }
+.msg.err { color: #ff9d9d; } .msg.ok { color: #7dffa8; }
+.hint, .depth-hint { color: #8fb7c9; font-size: 13px; }
+.depth-hint { min-height: 18px; margin-top: 6px; }
+.card { background: rgba(255,255,255,.05); border: 1px solid rgba(140,220,255,.15); border-radius: 14px; padding: 14px; margin-bottom: 10px; cursor: pointer; }
+.card .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 10px; text-align: center; }
+.card .grid b { display: block; font-size: 17px; }
+.card .grid span { font-size: 11.5px; color: #9fc9da; }
+.history { font-size: 14px; color: #d6f2ff; padding-top: 8px; }
+.history div { padding: 5px 0; border-top: 1px dashed rgba(140,220,255,.18); }
+.delete { background: none; border: 0; color: #ff9d9d; cursor: pointer; font-size: 13px; float: right; }
+nav { position: fixed; left: 0; right: 0; bottom: 0; display: flex; background: #032031; border-top: 1px solid #17617d; padding-bottom: env(safe-area-inset-bottom); }
+nav button { flex: 1; background: none; border: 0; color: #9fc9da; font-size: 21px; padding: 10px 0 8px; cursor: pointer; }
+nav button span { display: block; font-size: 12px; margin-top: 2px; }
+nav button.active { color: #fff; font-weight: 700; }

@@ -1,0 +1,1 @@
+{"install":"mkdir -p .data","start":"DB_PATH=.data/data.db python3 main.py"}
