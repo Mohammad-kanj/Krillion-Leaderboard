@@ -1,5 +1,7 @@
 # Krillion Leaderboard
 
+![Krillion Leaderboard Daily Score View](Krillion-Leaderboard.png)
+
 A shared leaderboard for friends who play **Krillion** (the daily dive game:
 7 questions, answers score by rarity — Plankton 10 up to *One in a Krillion* 100,
 game total out of 700, each point = 10 metres of depth).
